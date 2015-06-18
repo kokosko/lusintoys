@@ -1,0 +1,29 @@
+h1 =t('product.listing')
+
+= link_to t('product.new'), new_admin_product_path, class: 'btn btn-success'
+
+- unless @products.empty?
+  table class='table table-striped'
+    thead
+      tr
+        th
+        th =t('name')
+        th =t('category.title')
+        th =t('product.article')
+        th =t('price')
+        th
+    tbody
+      - @products.each do |product|
+        tr
+          td = image_tag(product.image_name_url(:thumb), alt: product.title)
+          td = link_to product.title, admin_product_path(product)
+          td = product.category ? (link_to product.category.title, admin_category_path(product.category_id)) : ''
+          td = product.article
+          td = number_to_currency(product.price, locale: I18n.locale)
+          td
+            => link_to t('edit'), edit_admin_product_path(product), class: 'btn btn-default'
+            => link_to t('destroy'), admin_product_path(product), data: {:confirm => t('confirm') }, :method => :delete, class: 'btn btn-danger'
+- else
+  h2 =t('product.no')
+
+= paginate @products
