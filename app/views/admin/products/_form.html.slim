@@ -2,7 +2,6 @@
   => f.input :title, label: t('name')
   => f.input :article, label: t('product.article')
   => f.input :price, label: t('price'), placeholder: t('currency')
-  => f.association :category, include_blank: false, label: t('category.title'), prompt: t('category.choise')
   => f.input :image_name, as: :file, label: t('image')
   p
   => f.submit t('save'), class: 'btn btn-success'

@@ -8,7 +8,6 @@ h1 =t('product.listing')
       tr
         th
         th =t('name')
-        th =t('category.title')
         th =t('product.article')
         th =t('price')
         th
@@ -17,7 +16,6 @@ h1 =t('product.listing')
         tr
           td = image_tag(product.image_name_url(:thumb), alt: product.title)
           td = link_to product.title, admin_product_path(product)
-          td = product.category ? (link_to product.category.title, admin_category_path(product.category_id)) : ''
           td = product.article
           td = number_to_currency(product.price, locale: I18n.locale)
           td

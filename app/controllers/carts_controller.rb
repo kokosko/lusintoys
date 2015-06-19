@@ -8,7 +8,6 @@ class CartsController < ApplicationController
 
   def show
     @products = Product.where(id: session[:cart])
-    #   require 'pry'; binding.pry
   end
 
   def destroy
