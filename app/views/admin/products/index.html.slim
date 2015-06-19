@@ -10,6 +10,7 @@ h1 =t('product.listing')
         th =t('name')
         th =t('product.article')
         th =t('price')
+        th =t('product.quantity')
         th
     tbody
       - @products.each do |product|
@@ -18,6 +19,7 @@ h1 =t('product.listing')
           td = link_to product.title, admin_product_path(product)
           td = product.article
           td = number_to_currency(product.price, locale: I18n.locale)
+          td = product.quantity
           td
             => link_to t('edit'), edit_admin_product_path(product), class: 'btn btn-default'
             => link_to t('destroy'), admin_product_path(product), data: {:confirm => t('confirm') }, :method => :delete, class: 'btn btn-danger'
