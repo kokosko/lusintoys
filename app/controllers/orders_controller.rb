@@ -11,8 +11,8 @@ class OrdersController < ApplicationController
     @order = Order.create(order_params)
     if @order.save
       flash[:success] = t('order.created')
-      redirect_to store_path
       session[:cart] = nil
+      redirect_to store_path
     else
       render :new
     end

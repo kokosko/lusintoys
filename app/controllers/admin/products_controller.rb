@@ -20,7 +20,7 @@ class Admin::ProductsController < AdminController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to [:admin, @product]
+      redirect_to admin_products_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @product.update(product_params)
-      redirect_to [:admin, @product]
+      redirect_to admin_products_path
     else
       render :edit
     end
