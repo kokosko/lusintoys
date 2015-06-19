@@ -24,10 +24,10 @@ h1 =t('order.listing')
             p = order.adress
             p = order.email
           td
-            p #{ t('order.sum') }: #{number_to_currency(order.sum, locale: I18n.locale) }
+            p #{ t('order.sum') }: #{ number_to_currency(order.sum, locale: I18n.locale) }
           td
             p = t("order.status.#{ order.status }")
-            - if !order.closed?
+            - unless order.closed?
               p => link_to t('order.close'), edit_admin_order_path(order), class: 'btn btn-success'
             p => link_to t('destroy'), admin_order_path(order), data: { :confirm => t('confirm') }, method: :delete, remote: true, class: 'btn btn-danger'
 - else

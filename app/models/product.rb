@@ -6,21 +6,10 @@ class Product < ActiveRecord::Base
     message: ' must be .jpg or .png file'
   }
 
-  belongs_to :category
   has_many :order_products
   mount_uploader :image_name, ProductUploader
 
-  scope :for_category, lambda { |category|
-    joins(:category)
-      .where('products.category_id = ? or
-         categories.parent_id = ?', category, category)
-      .group('products.id')
-  }
-
   scope :search, lambda { |search|
-    joins(:category)
-      .where('products.title ILIKE ? or
-         categories.title ILIKE ?', "%#{search}%", "%#{search}%")
-      .group('products.id')
+    where('products.title ILIKE ?', "%#{search}%").group('products.id')
   }
 end
