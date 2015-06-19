@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20150619084822) do
     t.string   "article"
     t.string   "image_name"
     t.decimal  "price",      precision: 8, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "quantity"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "quantity",                           default: 0
   end
 
 end

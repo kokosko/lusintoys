@@ -53,7 +53,7 @@ ru:
     art: 'Арт.'
     from_category: 'Товары из категории'
     no: 'Нет товаров'
-    quantity: 'Количество'
+    quantity: 'Доступно'
   order:
     sum: 'Сумма'
     id: 'Номер'
