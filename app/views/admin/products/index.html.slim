@@ -1,8 +1,7 @@
-h1 =t('product.listing')
-
 = link_to t('product.new'), new_admin_product_path, class: 'btn btn-success'
 
 - unless @products.empty?
+  h1 =t('product.listing')
   table class='table table-striped'
     thead
       tr
@@ -10,7 +9,7 @@ h1 =t('product.listing')
         th =t('name')
         th =t('product.article')
         th =t('price')
-        th =t('product.quantity')
+        th =t('product.balance')
         th
     tbody
       - @products.each do |product|
@@ -19,11 +18,11 @@ h1 =t('product.listing')
           td = link_to product.title, admin_product_path(product)
           td = product.article
           td = number_to_currency(product.price, locale: I18n.locale)
-          td = product.quantity
+          td = product.balance
           td
             => link_to t('edit'), edit_admin_product_path(product), class: 'btn btn-default'
             => link_to t('destroy'), admin_product_path(product), data: {:confirm => t('confirm') }, :method => :delete, class: 'btn btn-danger'
 - else
-  h2 =t('product.no')
+  h2 =t('product.none')
 
 = paginate @products

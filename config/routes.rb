@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :orders, only: [:new, :create]
+  resources :carts, only: [:update, :show, :destroy]
 
-  get 'store/index'
+  root to: 'store#index', as: 'store'
 
   namespace :admin do
     resources :products
@@ -9,9 +10,6 @@ Rails.application.routes.draw do
     root 'orders#index'
   end
 
-  root to: 'store#index', as: 'store'
-
+  get 'store/index'
   get 'search' => 'searches#index'
-
-  resources :carts, only: [:update, :show, :destroy]
 end

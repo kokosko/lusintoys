@@ -1,9 +1,9 @@
-.navbar class='navbar-default navbar-fixed-top' id='user_top_menu' role="navigation"
+.navbar class='navbar-default navbar-fixed-top' id='top_menu' role="navigation"
  .container
     .navbar-header id='logo'
       = link_to image_tag('logo.png'), store_path
     .collapse class='navbar-collapse'
       ul class='nav navbar-nav navbar-right'
         li id='cart-banner'
-          = render 'cart_banner'
-        li = render 'search'
+          = render 'application/cart_banner'
+        li = render 'application/search'

@@ -6,7 +6,7 @@
         th =t('name')
         th =t('product.article')
         th =t('price')
-        th =t('product.quantity')
+        th =t('product.balance')
         th
     tbody
       - @products.each do |product|
@@ -15,7 +15,7 @@
           td class='product_title' = product.title
           td = product.article
           td = number_to_currency(product.price, locale: I18n.locale)
-          td = product.quantity
+          td = product.balance
           td = button_to t('to_cart'), cart_path(product), method: :patch, remote: true, class: 'btn btn-success', id: "add_product_#{product.id}"
 - else
   h2 =t('product.no')

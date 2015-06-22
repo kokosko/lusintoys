@@ -12,14 +12,20 @@ body {
   background-color: #F8F8F8;
 }
 
-#user_top_menu {
-  background: #002C45;
+#top_menu {
+  background: #FF8800;
 }
 
 #user_top_menu p.navbar-text {
   margin: 5px 0px 0px 15px;
   font-weight:  bold;
   color: #FFFFFF;
+}
+
+#cart-banner  {
+  background: none;
+  color: #FFFFFF;
+  border: none;
 }
 
 #cart-banner a:hover {
@@ -103,7 +109,7 @@ div.info-group {
   float: right;
 }
 
-td.right {
+.right {
   text-align: right;
 }
 

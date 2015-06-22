@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :article
       t.string :image_name
       t.decimal :price, precision: 8, scale: 2
+      t.integer :balance, default: 0
       t.timestamps null: false
     end
   end
