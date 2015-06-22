@@ -5,7 +5,7 @@ development:
   api_secret: 9WD4I6euJ1woeNhHKy4rLu7zw-0
   enhancmage_tag: true
   static_image_support: false
-poduction:
+production:
   cloud_name: 'liuxintoys'
   api_key: '628711617794351'
   api_secret: 9WD4I6euJ1woeNhHKy4rLu7zw-0
