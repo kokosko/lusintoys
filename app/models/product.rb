@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   validates :title, :article, :price, presence: true
+  validates :article, uniqueness: true
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
   validates :price, numericality: { less_than: 1_000_000 }
   validates :image_name, allow_blank: true, format: {
