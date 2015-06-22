@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: lusintoys_production
-  username: lusintoys
-  password: <%= ENV['LUSINTOYS_DATABASE_PASSWORD'] %>
+  username: liuxintoys
+  password: <%= ENV['LIUXINTOYS_DATABASE_PASSWORD'] %>
