@@ -6,7 +6,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body style='padding-top: 70px;'
+  body
     = render "application/menu_top"
     .container
-      = yield
+      .col-md-12 class='field'
+        = yield
+    = render_lazybox

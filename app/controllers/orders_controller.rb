@@ -1,6 +1,4 @@
 class OrdersController < ApplicationController
-  layout 'store'
-
   def new
     @products = Product.where(id: session[:cart])
     @order = Order.new(products: @products)

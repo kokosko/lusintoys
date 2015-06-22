@@ -1,6 +1,5 @@
-h1 =t('order.listing')
-
 - unless @orders.blank?
+  h1 =t('order.listing')
   table class='table table-striped'
     tbody
       tr
@@ -15,9 +14,10 @@ h1 =t('order.listing')
             p = order.id
             p = order.created_at.strftime('%d.%m.%Y')
           td
-            - order.order_products.each do |product|
-              => image_tag(product.image_name_url(:small), alt: product.title)
-              p #{ product.quantity } x #{link_to product.title, admin_product_path(product.product_id) } (#{ t('product.art') } : #{product.article})
+            - order.order_products.each do |p|
+              => image_tag(p.image_name_url(:small), alt: p.title)
+              /* - binding.pry */
+              p #{ p.quantity } x #{link_to p.title, admin_product_path(p.product_id) } (#{ t('product.art') } : #{p.article})
           td
             p = order.name
             p = order.phone
@@ -31,6 +31,6 @@ h1 =t('order.listing')
               p => link_to t('order.close'), edit_admin_order_path(order), class: 'btn btn-success'
             p => link_to t('destroy'), admin_order_path(order), data: { :confirm => t('confirm') }, method: :delete, remote: true, class: 'btn btn-danger'
 - else
-  h2 =t('order.no_new')
+  h2 =t('order.none')
 
 = paginate @orders

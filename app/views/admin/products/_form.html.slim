@@ -1,10 +1,14 @@
-= simple_form_for [:admin, @product], html: { class: 'form-horizontal' } do |f|
-  => f.input :title, label: t('name')
-  => f.input :article, label: t('product.article')
-  => f.input :price, label: t('price'), placeholder: t('currency')
-  => f.input :quantity, label: t('product.quantity')
-  => f.input :image_name, as: :file, label: t('image')
-  p
-  => f.submit t('save'), class: 'btn btn-success'
+.container
+  = simple_form_for [:admin, @product], html: { class: 'form-horizontal' } do |f|
+    .col-md-7
+      => f.input :title, label: t('name')
+      => f.input :article, label: t('product.article')
+      => f.input :price, label: t('price'), placeholder: t('currency')
+      => f.input :balance, label: t('product.balance')
+      => f.input :image_name, as: :file, label: t('image')
+      => f.submit t('save'), class: 'btn btn-success'
+    .col-md-5
+      - unless @product.nil?
+        = link_to image_tag(@product.image_name_url(:medium), alt: @product.title), @product.image_name_url(:large), rel: :lazybox
 p
 => link_to t('back'), admin_products_path, class: 'btn btn-default'

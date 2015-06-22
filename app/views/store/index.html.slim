@@ -5,19 +5,19 @@
         th
         th =t('name')
         th =t('product.article')
-        th =t('price')
-        th =t('product.quantity')
+        th class='right' =t('price')
+        th class='right' =t('product.balance')
         th
     tbody
       - @products.each do |product|
         tr
-          td = link_to image_tag(product.image_name_url(:thumb), alt: product.title), product.image_name_url(:large), rel: :lazybox
-          td class='product_title' = product.title
-          td = product.article
-          td = number_to_currency(product.price, locale: I18n.locale)
-          td = product.quantity
-          td = button_to t('to_cart'), cart_path(product), method: :patch, remote: true, class: 'btn btn-success', id: "add_product_#{product.id}"
+          td class='col-md-2' = link_to image_tag(product.image_name_url(:thumb), alt: product.title), product.image_name_url(:large), rel: :lazybox
+          td class='col-md-3 product_title' = product.title
+          td class='col-md-2' = product.article
+          td class='col-md-2 right' = number_to_currency(product.price, locale: I18n.locale)
+          td class='col-md-2 right' = product.balance.to_s + t('product.in')
+          td class='col-md-1' = button_to t('to_cart'), cart_path(product), method: :patch, remote: true, class: 'btn btn-success', id: "add_product_#{product.id}"
 - else
-  h2 =t('product.no')
+  h2 =t('product.none')
 
 = paginate @products

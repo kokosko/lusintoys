@@ -7,4 +7,9 @@ html
     = csrf_meta_tags
 
   body
-    = yield
+    = render "application/user_menu_top"
+    .container
+      .col-md-12 class='field'
+        = render 'application/flash_messages'
+        = yield
+    = render_lazybox

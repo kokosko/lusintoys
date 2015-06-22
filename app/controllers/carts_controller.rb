@@ -1,6 +1,4 @@
 class CartsController < ApplicationController
-  layout 'store'
-
   def update
     session[:cart] = [] if session[:cart].nil?
     session[:cart] << params[:id] unless session[:cart].include?(params[:id])

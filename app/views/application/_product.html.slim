@@ -1,5 +1,5 @@
 .col-md-5 class='product'
-  = link_to image_tag(product.image_name_url(:medium), alt: product.title), product.image_name_url(:large), rel: :lazybox
+  = link_to image_tag(product.image_name_url(:thumb), alt: product.title), product.image_name_url(:large), rel: :lazybox
   .buy
     p class='product_title'
       = product.title

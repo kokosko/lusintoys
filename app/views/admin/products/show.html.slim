@@ -13,6 +13,10 @@ p
 p
   strong =t('price')
 p
+  strong =t('product.balance')
+p
+  = @product.balance
+p
   = sprintf("%0.02f руб", @product.price)
 
 => link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-default'
