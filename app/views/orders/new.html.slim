@@ -32,12 +32,12 @@
       .col-md-6
         .form-inputs
           = f.hidden_field :sum, id: 'order-sum-form'
-          /* = f.input :name, label: t('user.name') */
-          /* = f.input :adress, label: t('user.address') */
-          /* = f.input :phone, label: t('user.phone'), placeholder: '84951112233' */
-          = f.input :name, label: t('user.name'), input_html: { value: 'user' }
-          = f.input :adress, label: t('user.address'), input_html: { value: 'address' }
-          = f.input :phone, label: t('user.phone'), placeholder: '84951112233', input_html: { value: '8909871763578123' }
+          = f.input :name, label: t('user.name')
+          = f.input :adress, label: t('user.address')
+          = f.input :phone, label: t('user.phone'), placeholder: '84951112233'
+          /* = f.input :name, label: t('user.name'), input_html: { value: 'user' } */
+          /* = f.input :adress, label: t('user.address'), input_html: { value: 'address' } */
+          /* = f.input :phone, label: t('user.phone'), placeholder: '84951112233', input_html: { value: '8909871763578123' } */
           = f.input :email, label: t('user.email'), placeholder: 'email@domain.com'
 
     .form-actions
