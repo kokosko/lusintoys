@@ -6,7 +6,7 @@
         th class='col-md-1' #{ t('order.id') } / #{ t('date') }
         th class='col-md-3' = t('product.listing')
         th class='col-md-5' = t('buyer_details')
-        th class='col-md-2' #{ t('order.sum') } / #{ t('discount.title') }
+        th class='col-md-2' #{ t('order.sum') }
         th class='col-md-1' = t('order.status.title')
       - @orders.each do |order|
         tr class='order' id="order-id_#{ order.id }"
@@ -16,7 +16,6 @@
           td
             - order.order_products.each do |p|
               => image_tag(p.image_name_url(:small), alt: p.title)
-              /* - binding.pry */
               p #{ p.quantity } x #{link_to p.title, admin_product_path(p.product_id) } (#{ t('product.art') } : #{p.article})
           td
             p = order.name
@@ -24,7 +23,7 @@
             p = order.adress
             p = order.email
           td
-            p #{ t('order.sum') }: #{ number_to_currency(order.sum, locale: I18n.locale) }
+            p = number_to_currency(order.sum, locale: I18n.locale)
           td
             p = t("order.status.#{ order.status }")
             - unless order.closed?
